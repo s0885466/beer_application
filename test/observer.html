@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea></textarea>
+<input type="checkbox">
+<p></p>
+<script>
+    const textarea = document.querySelector('textarea');
+    const input = document.querySelector('input');
+    const p = document.querySelector('p');
+
+
+    class Observer{
+        constructor(){
+            this.subscribes = [];
+        }
+        subscribe(fn){
+            this.subscribes.push(fn);
+        }
+        run(data){
+            this.subscribes.forEach(el => el(data));
+        }
+    }
+const state = {
+        text: '',
+
+};
+
+
+    const observer = new Observer();
+    observer.subscribe((type) => {
+       p.innerText = state.text;
+    });
+
+    observer.subscribe((type) => {
+        textarea.value = state.text;
+    });
+
+
+    textarea.addEventListener('keyup', () => {
+        state.text = textarea.value;
+        observer.run('text');
+    });
+
+    input.addEventListener('click', () => {
+        if ((state.text.length > 0 )) {
+            state.text = input.checked
+                ? state.text.toUpperCase()
+                : state.text.toLowerCase();
+        }
+        console.log(state.text);
+        observer.run('text');
+    })
+
+</script>
+</body>
+</html>

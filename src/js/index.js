@@ -1,11 +1,19 @@
 import {url} from "./config";
 import Beers from './models/Beers';
 import LS from './models/LS';
+import Modal from './models/Modal';
+
 import elements from "./views/base";
 import {renderLoader, clearLoader} from "./views/loaderView";
 import renderBeers from "./views/beersView";
 import renderPages from './views/pagesView';
 import {renderFavorites, clearFavorites} from "./views/favoritesView";
+import {renderPhone, renderPassword, renderEmail, renderSubmit} from "./views/modalView";
+
+import Observer from './models/Observer';
+
+
+
 
 const state = {
     pages: {
@@ -16,6 +24,12 @@ const state = {
 };
 
 state.ls = new LS('beers');
+
+state.modal = new Modal({
+   minLenPassword: 6,
+   minLenPhone: 7
+});
+
 state.controllers = {};
 
 const dataController = () => {
@@ -40,6 +54,8 @@ const dataController = () => {
             renderBeers(state.beers.data, state.pages.page, state.pages.amount);
             renderPages(state.pages.page, state.pages.lastPage);
             renderFavorites(state.beers.data);
+
+            renderSubmit(state.modal);
 
             //console.log(state.beers.data);
         })
@@ -114,6 +130,48 @@ window.addEventListener('hashchange', (e) => {
     }
 });
 
+elements.btnModal.addEventListener('click', (e) => {
+    elements.exampleModal.style.display = 'block';
+});
+
+window.addEventListener('click', (e) => {
+ if ((e.target === elements.exampleModal)||(e.target.dataset.modal === 'close')){
+     elements.exampleModal.style.display = 'none';
+ }
+});
+
+
+
+//События на модальную форму
+const observerBtnSuccess = new Observer();
+observerBtnSuccess.subscribe(renderSubmit);
+
+
+
+elements.inputPhone.addEventListener('keyup', (e) => {
+    state.modal.setPhone(e.target.value);
+    renderPhone(state.modal);
+    observerBtnSuccess.run(state.modal);
+});
+
+elements.inputEmail.addEventListener('keyup', (e) => {
+    state.modal.setEmail(e.target.value);
+    renderEmail(state.modal);
+    observerBtnSuccess.run(state.modal);
+});
+
+elements.inputPassword.addEventListener('keyup', (e) => {
+    state.modal.setPassword(e.target.value);
+    renderPassword(state.modal);
+    observerBtnSuccess.run(state.modal);
+});
+
+
+
+
+
+
+
 function updateFavorites(){
     if (state.ls.isBeersLocalStorage()){
         state.beers.data.forEach((el) => {
@@ -122,3 +180,5 @@ function updateFavorites(){
         });
     }
 }
+
+
