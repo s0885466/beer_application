@@ -142,27 +142,26 @@ window.addEventListener('click', (e) => {
 
 
 
-//События на модальную форму
+//События на модальную форму через слушателя
 const observerBtnSuccess = new Observer();
+observerBtnSuccess.subscribe(renderPhone);
+observerBtnSuccess.subscribe(renderEmail);
+observerBtnSuccess.subscribe(renderPassword);
 observerBtnSuccess.subscribe(renderSubmit);
-
 
 
 elements.inputPhone.addEventListener('keyup', (e) => {
     state.modal.setPhone(e.target.value);
-    renderPhone(state.modal);
     observerBtnSuccess.run(state.modal);
 });
 
 elements.inputEmail.addEventListener('keyup', (e) => {
     state.modal.setEmail(e.target.value);
-    renderEmail(state.modal);
     observerBtnSuccess.run(state.modal);
 });
 
 elements.inputPassword.addEventListener('keyup', (e) => {
     state.modal.setPassword(e.target.value);
-    renderPassword(state.modal);
     observerBtnSuccess.run(state.modal);
 });
 

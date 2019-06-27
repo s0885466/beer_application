@@ -5,7 +5,7 @@ const renderSome = (someChk) => {
         ? `<h3><i class="far fa-smile"></i></h3>`
         : (someChk === false )
         ? `<h3><i class="far fa-frown"></i></h3>`
-        : `<h3><i class="far fa-pen"></i></h3>`;
+        : `<h3><i class="fas fa-pen"></i></h3>`;
     return html;
 };
 
