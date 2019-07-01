@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92e26e0-579d-4ca4-ae74-c4c196941a52" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/img/icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/img/icons.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/models/Beers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/models/Beers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/models/LS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/models/LS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/models/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/models/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/models/Observer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/models/Observer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/beersView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/beersView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/favoritesView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/favoritesView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/loaderView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/loaderView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/modalView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/modalView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/views/pagesView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/views/pagesView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fabrica.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/fabrica.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/observer.html" beforeDir="false" afterPath="$PROJECT_DIR$/test/observer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +16,17 @@
     <favorites_list name="beer" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,6 +72,7 @@
         <option value="$PROJECT_DIR$/src/js/index.js" />
         <option value="$PROJECT_DIR$/src/js/views/modalView.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -161,15 +148,16 @@
       <workItem from="1561358077949" duration="53400000" />
       <workItem from="1561620943291" duration="26494000" />
       <workItem from="1561660592454" duration="5208000" />
-      <workItem from="1561987344974" duration="1085000" />
+      <workItem from="1561987344974" duration="1270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116748000" />
+    <option name="totallyTimeSpent" value="116933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-159" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.23187633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -272,9 +260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/css/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -362,6 +347,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
