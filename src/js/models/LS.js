@@ -3,23 +3,19 @@ export default class LS {
         this.name = name;
     }
 
-    isBeersLocalStorage() {
-        return localStorage.getItem(this.name) ? true : false;
-    };
-
-    getArrFromLocalStorage() {
+    _getArrFromLocalStorage() {
         if (localStorage.getItem(this.name) !== null) {
             return JSON.parse(localStorage.getItem(this.name));
         }
         return false;
     };
 
-    addToLocalStorage(id) {
+    _addToLocalStorage(id) {
         if (!this.isBeersLocalStorage()){
             localStorage.setItem(this.name, JSON.stringify([id]));
 
         } else {
-            let beers = this.getArrFromLocalStorage();
+            let beers = this._getArrFromLocalStorage();
             if ( ! beers.includes(id)) {
                 beers.push(id);
                 localStorage.setItem(this.name, JSON.stringify(beers));
@@ -27,13 +23,17 @@ export default class LS {
         }
     };
 
-    delFromLocalStorage(id) {
-        let beers = this.getArrFromLocalStorage();
+    _delFromLocalStorage(id) {
+        let beers = this._getArrFromLocalStorage();
         const i = beers.findIndex((el) => el === id);
         if (i !== -1) {
             beers.splice(i, 1);
         }
         localStorage.setItem(this.name, JSON.stringify(beers));
+    };
+
+    isBeersLocalStorage() {
+        return localStorage.getItem(this.name) ? true : false;
     };
 
     delAllFromLocalStorage() {
@@ -42,14 +42,16 @@ export default class LS {
 
     isIdInLocalStorage(id) {
         if (this.isBeersLocalStorage()) {
-            const beers = this.getArrFromLocalStorage();
+            const beers = this._getArrFromLocalStorage();
             return beers.includes(id);
         }
         return false
     };
+
+    toggle(id) {
+        this.isIdInLocalStorage(id)
+            ? this._delFromLocalStorage(id)
+            : this._addToLocalStorage(id)
+    }
+
 }
-
-
-
-
-

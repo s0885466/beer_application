@@ -3,12 +3,8 @@ export default class Observer {
         this.subscribers = [];
     }
 
-    subscribe(fn) {
-        this.subscribers.push(fn);
-    }
-
-    unSubscribe(fn) {
-        this.subscribers.filter(el => el !== fn);
+    subscribe(...fn) {
+        fn.forEach(fn => this.subscribers.push(fn));
     }
 
     run(data) {

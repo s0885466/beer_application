@@ -25,8 +25,6 @@ export const renderEmail = ({emailChk}) => {
 };
 
 export const renderSubmit = ({submitButtonDisabled}) => {
-    console.log('Проверяем кнопку', submitButtonDisabled);
-
     elements.btnSubmit.disabled = submitButtonDisabled;
 };
 

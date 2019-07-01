@@ -1,5 +1,3 @@
-import elements from "./base";
-
 export const renderLoader = parent => {
     const loader = `
             <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">

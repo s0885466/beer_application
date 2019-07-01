@@ -1,3 +1,7 @@
+//для работы IE 11
+require("element-closest-polyfill");
+import 'element-closest-polyfill';
+
 import {url} from "./config";
 import Beers from './models/Beers';
 import LS from './models/LS';
@@ -11,9 +15,6 @@ import {renderFavorites, clearFavorites} from "./views/favoritesView";
 import {renderPhone, renderPassword, renderEmail, renderSubmit} from "./views/modalView";
 
 import Observer from './models/Observer';
-
-
-
 
 const state = {
     pages: {
@@ -30,9 +31,8 @@ state.modal = new Modal({
    minLenPhone: 7
 });
 
-state.controllers = {};
+window.addEventListener('load', () => {
 
-const dataController = () => {
     renderLoader(elements.loader);
     state.beers = new Beers(url);
     state.beers.getData()
@@ -55,23 +55,17 @@ const dataController = () => {
             renderPages(state.pages.page, state.pages.lastPage);
             renderFavorites(state.beers.data);
 
-            renderSubmit(state.modal);
-
-            //console.log(state.beers.data);
         })
         .catch(error => console.error('error fetching data', error));
-};
+});
 
-dataController();
-
+//событие клика по кнопкам favorites
 [elements.beers, elements.favorites].forEach(elem => {
     elem.addEventListener('click', e => {
         const target = e.target.closest('[data-favorites]');
         if (target !== null){
             const idFavorites = +target.dataset.favorites;
-
-            state.ls.isIdInLocalStorage(idFavorites) ? state.ls.delFromLocalStorage(idFavorites): state.ls.addToLocalStorage(idFavorites);
-
+            state.ls.toggle(idFavorites);
             //добавление в state favorites из LocalStorage
             updateFavorites();
             renderBeers(state.beers.data, state.pages.page, state.pages.amount);
@@ -100,10 +94,8 @@ elements.sort.addEventListener('click', e => {
                 : a.ibu - b.ibu
             });
         }
-
         renderBeers(state.beers.data, state.pages.page, state.pages.amount);
     }
-
 });
 
 //событие на кнопку очистка избранного
@@ -119,7 +111,7 @@ elements.favorites.addEventListener('click', e => {
 });
 
 //Событие смена hash
-window.addEventListener('hashchange', (e) => {
+window.addEventListener('hashchange', () => {
     const newPage = parseInt(location.hash.slice(1));
     if ((newPage !== NaN) && (newPage >= 1) && (newPage <= state.pages.lastPage)){
         state.pages.page = newPage;
@@ -130,6 +122,7 @@ window.addEventListener('hashchange', (e) => {
     }
 });
 
+//модальная форма
 elements.btnModal.addEventListener('click', (e) => {
     elements.exampleModal.style.display = 'block';
 });
@@ -140,36 +133,24 @@ window.addEventListener('click', (e) => {
  }
 });
 
-
-
 //События на модальную форму через слушателя
-const observerBtnSuccess = new Observer();
-observerBtnSuccess.subscribe(renderPhone);
-observerBtnSuccess.subscribe(renderEmail);
-observerBtnSuccess.subscribe(renderPassword);
-observerBtnSuccess.subscribe(renderSubmit);
-
+state.observerBtnSuccess = new Observer();
+state.observerBtnSuccess.subscribe(renderPhone, renderEmail, renderPassword, renderSubmit);
 
 elements.inputPhone.addEventListener('keyup', (e) => {
     state.modal.setPhone(e.target.value);
-    observerBtnSuccess.run(state.modal);
+    state.observerBtnSuccess.run(state.modal);
 });
 
 elements.inputEmail.addEventListener('keyup', (e) => {
     state.modal.setEmail(e.target.value);
-    observerBtnSuccess.run(state.modal);
+    state.observerBtnSuccess.run(state.modal);
 });
 
 elements.inputPassword.addEventListener('keyup', (e) => {
     state.modal.setPassword(e.target.value);
-    observerBtnSuccess.run(state.modal);
+    state.observerBtnSuccess.run(state.modal);
 });
-
-
-
-
-
-
 
 function updateFavorites(){
     if (state.ls.isBeersLocalStorage()){
@@ -179,5 +160,3 @@ function updateFavorites(){
         });
     }
 }
-
-

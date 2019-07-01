@@ -1,3 +1,7 @@
+//для работы IE 11
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 export default class Beers {
     constructor(url){
         this.url = url;

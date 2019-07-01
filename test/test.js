@@ -1,6 +1,13 @@
-var assert = require("assert");
-describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-        assert.equal(-1, [1,2,3].indexOf(5));
-        assert.equal(-1, [1,2,3].indexOf(2));
-    }) });
+function sayName(name) {
+    return message = 'My name is ' + name;
+}
+
+//var assert = require('chai').assert;
+var should = require('chai').should();
+
+describe('test', function () {
+   it('test', function () {
+       sayName('name').should.equal('My name is name');
+   })
+});
+

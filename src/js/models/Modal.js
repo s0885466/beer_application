@@ -10,7 +10,6 @@ export default class Modal {
         this.password = '';
         this.email = '';
         this.submitButtonDisabled = true;
-
     }
 
     setPhone(phone){

@@ -1,5 +1,5 @@
 .mod {
-    display: block;
+    display: none;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
     overflow: auto;
